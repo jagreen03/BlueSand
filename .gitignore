@@ -416,3 +416,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# local run helpers
+tools/local/
+Click To Run.bat
+commitMessage.bat
