@@ -1,0 +1,45 @@
+# BlueSand configuration (ASCII-only)
+include_paths:
+  - "C:\\gitx\\"
+  - "C:\\test\\"
+  - "C:\\GITY\\"
+  - "%USERPROFILE%\\Desktop\\"
+  - "%USERPROFILE%\\Documents\\"
+  - "%USERPROFILE%\\Downloads\\"
+  - "%USERPROFILE%\\OneDrive\\Desktop\\personal\\"
+  - "C:\\test\\GitHistoryLog\\"
+  - "C:\\TEST\\Employment_History_Analyzer\\_trials\\AuraDevStream\\_agile_workflow_states\\IN-DEV\\Electron Application Mail Analyzer UI\\"
+  - "C:\\TEST\\Superthinking-Blueprints\\SuperThinking-Blueprints\\"
+
+exclude_dir_regex: "(?i)\\.git|\\.vs|\\.vscode|node_modules|venv|plugins|\\.obsidian|dist|build|bin|obj"
+
+extensions: ["*.html","*.md","*.txt","*.cs","*.js","*.ts","*.css","*.ps1","*.py","*.sql","*.bat"]
+
+anchor_terms:
+  # Core
+  - BlueSand
+  - BlueWording
+  - Blueprint
+  - SuperThinking
+  - Iris
+  - Irisification
+  - RainbowFactor
+  - Factor3Vec
+  - hotFactor
+  - coldFactor
+  - constFactor
+  - EWK
+  - EWH
+  - AI-Jain
+  - AI-Joe
+  - AI-Claud
+  # Gremisian variants
+  - Gremisian
+  - Gremissian
+  - Gremish
+
+planned_hints_regex: "(?i)plan|todo|readme|narrative|concept|proposal|vision|design|spec|story"
+code_hints_regex: "(?i)class|function|def|public|private|import|#include|using|const|let|var|interface|module|sql|select|insert|update|delete"
+
+crest_threshold: 0.90   # top 10%
+slopes_threshold: 0.60  # mid 30%
