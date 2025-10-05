@@ -1,0 +1,36 @@
+# Ignore build and VS artifacts
+*.user
+*.suo
+*.ncb
+*.pdb
+*.cache
+*.db
+*.ilk
+*.log
+*.tmp
+*.bak
+*.DS_Store
+Thumbs.db
+
+# Artifacts & outputs
+*.jsonl
+*.csv
+*.zip
+*.7z
+*.tar.gz
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# Transient / generated
+desktop.ini
+~$*
+*.orig
+*.rej
+
+# Batch and test scripts (temporary)
+*_Compare.bat
+*_Compare.ps1
+Quick-sanity-test.*
+Smoke-test-locally.ps1

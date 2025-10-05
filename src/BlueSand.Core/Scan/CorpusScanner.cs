@@ -169,8 +169,12 @@ namespace BlueSand.Core.Scan
 			WriteWordmapTable(opt.OutputDir, tiers, rows.ToList());
 			WriteRawCsv(opt.OutputDir, rows.ToList());
 			WriteSummary(opt.OutputDir, rows.ToList(), tiers);
+			WriteVisuals(opt.OutputDir, rows.ToList(), tiers);
 
-			Console.WriteLine($"Wrote {Path.Combine(opt.OutputDir, "WORDMAP_TABLE.md")}, {Path.Combine(opt.OutputDir, "WORDMAP_RAW.csv")}, {Path.Combine(opt.OutputDir, "SUMMARY.md")}");
+			var files = new List<string>() { "WORDMAP_TABLE.md",	"WORDMAP_RAW.csv", "SUMMARY.md", "VISUALS.md" };
+			var paths = files.Select(f => Path.Combine(opt.OutputDir, f)).ToList();
+			Console.WriteLine($"Wrote {string.Join(", ", paths)}");
+
 			return 0;
 		}
 
@@ -252,6 +256,42 @@ namespace BlueSand.Core.Scan
 			// local func to avoid field-capture overhead in linq above
 			//string r_BUCKET(TermOccurrence r) => r.Bucket.ToString();
 		}
+
+		static void WriteVisuals(string outDir, IList<TermOccurrence> rows, IList<TermTier> tiers)
+		{
+			var sb = new System.Text.StringBuilder();
+			sb.AppendLine("# BlueSand Visuals (Mermaid)");
+			sb.AppendLine();
+
+			// Buckets -> pie
+			var buckets = rows.GroupBy(r => r.Bucket.ToString())
+							  .Select(g => new { Name = g.Key, Count = g.Count() })
+							  .OrderByDescending(x => x.Count)
+							  .ToList();
+			sb.AppendLine("```mermaid");
+			sb.AppendLine("pie showData");
+			sb.AppendLine("  title Bucket Distribution");
+			foreach(var b in buckets) sb.AppendLine($"  \"{b.Name}\" : {b.Count}");
+			sb.AppendLine("```");
+			sb.AppendLine();
+
+			// Tiers -> pie
+			var tierCounts = tiers.GroupBy(t => t.Tier)
+								  .Select(g => new { Name = g.Key, Count = g.Count() })
+								  .OrderByDescending(x => x.Count)
+								  .ToList();
+			sb.AppendLine("```mermaid");
+			sb.AppendLine("pie showData");
+			sb.AppendLine("  title Tier Distribution (per term)");
+			foreach(var t in tierCounts) sb.AppendLine($"  \"{t.Name}\" : {t.Count}");
+			sb.AppendLine("```");
+
+			System.IO.File.WriteAllText(
+				System.IO.Path.Combine(outDir, "VISUALS.md"),
+				sb.ToString(),
+				System.Text.Encoding.UTF8);
+		}
+
 
 		private static PathSpecSet? BuildPathSpecs(ScanEssentials cfg, ApplicationOptions opt)
 		{
