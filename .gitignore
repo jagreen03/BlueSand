@@ -416,3 +416,46 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# local run helpers
+tools/local/
+Click To Run.bat
+commitMessage.bat
+
+###############################################################################
+# BlueSand – generated artifacts and local-only files
+###############################################################################
+
+# CLI/PowerShell run outputs
+/out_cli/
+/out_ps/
+
+# Generated docs from scans (keep other docs/)
+# (These are re-created on every run)
+/docs/WORDMAP_RAW.csv
+/docs/WORDMAP_TABLE.md
+/docs/SUMMARY.md
+
+# Normalized CSVs used for C# vs PowerShell comparison
+/out_cli/WORDMAP_RAW.normalized.csv
+/out_ps/WORDMAP_RAW.normalized.csv
+
+# Safety: ignore any scan artifacts if they appear under out_* subfolders
+/out_*/WORDMAP_RAW.csv
+/out_*/WORDMAP_TABLE.md
+/out_*/SUMMARY.md
+/out_*/WORDMAP_RAW.normalized.csv
+
+# Optional scratch/临时 work areas (feel free to remove if you don't use them)
+scratch/
+tmp/
+temp/
+*-scratch/
+
+# Local machine configs (track the canonical bluesand.yaml; ignore machine/secrets)
+/config/*.local.yaml
+/config/*secrets*.yaml
+
+# Keep repo hooks tracked if you use them
+!.githooks/
+!.githooks/**

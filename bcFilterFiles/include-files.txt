@@ -1,0 +1,17 @@
+*.sln
+*.cs
+*.csproj
+*.config
+*.json
+*.yml
+*.yaml
+*.md
+*.ps1
+*.psm1
+*.bat
+*.sh
+*.cmd
+*.xml
+*.txt
+LICENSE
+README*

@@ -1,0 +1,1 @@
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\Test-BlueSand-Compare.ps1

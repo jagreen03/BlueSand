@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Calls the PowerShell pre-commit checks.
+exec pwsh -NoProfile -File ".githooks/pre-commit.ps1"
