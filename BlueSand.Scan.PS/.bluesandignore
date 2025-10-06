@@ -1,0 +1,35 @@
+# Lines are globs, case-insensitive
+# Comments start with '#'
+# Negation (re-include) with leading '!'
+
+# build artifacts
+**/bin/**
+**/obj/**
+**/dist/**
+**/build/**
+**/.vs/**
+**/.vscode/**
+
+# node/venv
+**/node_modules/**
+**/venv/**
+
+# Obsidian
+**/.obsidian/**
+
+# BlueSand outputs
+**/out_cli/**
+**/out_ps/**
+**/WORDMAP_*.md
+**/SUMMARY.md
+
+# Office + temp
+**/~$*
+**/~WR[DL]*.tmp
+
+# Windows “copy” clutter + listing dumps
+**/*- Copy*/**
+**/listingOf-*.txt
+
+# Example of re-include:
+#!**/docs/**

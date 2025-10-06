@@ -10,84 +10,43 @@ include_paths:
   - 'C:\test\GitHistoryLog\'
   - 'C:\TEST\Employment_History_Analyzer\_trials\AuraDevStream\_agile_workflow_states\IN-DEV\Electron Application Mail Analyzer UI\'
   - 'C:\TEST\Superthinking-Blueprints\SuperThinking-Blueprints\'
-
-max_file_mb: 2   # skip files larger than N MB (set 0 to disable)
   
 #exclude_dir_regex: "(?i)\\.git|\\.vs|\\.vscode|node_modules|venv|plugins|\\.obsidian|dist|build|bin|obj"
-
+# match whole directory segments (case-insensitive)
 exclude_dir_regex: '(?i)(^|\\)(\.git|\.vs|\.vscode|node_modules|plugins|venv|\.obsidian|dist|build|bin|obj)(\\|$)'
 exclude_file_regex: "(?i)(?:^|[\\/]).*?(?:- Copy(?: \\(\\d+\\))?|listingOf-.*\\.txt|~\\$.*|~WR(?:D|L)\\d+\\.tmp)$"
+# exclude_file_regex: "(?i)(^|[\\/])(out_(cli|ps)|WORDMAP_(RAW|TABLE)\.md|SUMMARY\.md)([\\/]|$)"
+
+max_file_mb: 2   # skip files larger than N MB (set 0 to disable)
 
 # (Optional) more balanced tiers:
 # crest_threshold: 0.66
 # slopes_threshold: 0.33
-  - "C:\\gitx\\"
-  - "C:\\test\\"
-  - "C:\\GITY\\"
-  - "%USERPROFILE%\\Desktop\\"
-  - "%USERPROFILE%\\Documents\\"
-  - "%USERPROFILE%\\Downloads\\"
-  - "%USERPROFILE%\\OneDrive\\Desktop\\personal\\"
-  - "C:\\test\\GitHistoryLog\\"
-  - "C:\\TEST\\Employment_History_Analyzer\\_trials\\AuraDevStream\\_agile_workflow_states\\IN-DEV\\Electron Application Mail Analyzer UI\\"
-  - "C:\\TEST\\Superthinking-Blueprints\\SuperThinking-Blueprints\\"
-
-exclude_dir_regex: "(?i)\\.git|\\.vs|\\.vscode|node_modules|venv|plugins|\\.obsidian|dist|build|bin|obj"
 
 extensions: ["*.html","*.md","*.txt","*.cs","*.js","*.ts","*.css","*.ps1","*.py","*.sql","*.bat"]
 
 anchor_terms:
-  - AI-Claud
-  - AI-Elm
-  - AI-Jain
-  - AI-Joe
-  - AI-Robin
-  - AthenianScript
-  - EpinikianScript
-  - EpinikionScript
-  - Logos
+  # Core
   - BlueSand
   - BlueWording
   - Blueprint
-  - Bluewording
-  - Core
-  - EWH
-  - EWK
-  - EWK-N
-  - EssenceTraverser
-  - Fac3Vec
-  - Fac4Vec
-  - Factor3Vec
-  - Factor4Vec
-  - FactorSpace
-  - Gerkin
-  - Specflow
-  - Gremish
-  - Gremisian
-  - Gremissian
+  - SuperThinking
   - Iris
   - Irisification
-  - MoEL
-  - OrbWeaver
-  - constFactor
-  - ProtectedFactor
-  - coolFactor
-  - warmFactor
-  - coldFactor
-  - hotFactor
   - RainbowFactor
-  - SuperThinking
-  - TraversalLayer
-  - VectorManifold
-  - Word2Lex
-  - orbOfKnowledge
-  - protectedFactor
-  - sBlueFist
-  - sBlueLightsFeedback
-  - sBlueTTsFeedback
-  - sBlueThumb
-  - sBlueLight
-
+  - Factor3Vec
+  - hotFactor
+  - coldFactor
+  - constFactor
+  - EWK
+  - EWH
+  - AI-Jain
+  - AI-Joe
+  - AI-Claud
+  # Gremisian variants
+  - Gremisian
+  - Gremissian
+  - Gremish
 
 planned_hints_regex: "(?i)plan|todo|readme|narrative|concept|proposal|vision|design|spec|story"
 code_hints_regex: "(?i)class|function|def|public|private|import|#include|using|const|let|var|interface|module|sql|select|insert|update|delete"

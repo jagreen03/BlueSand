@@ -1,0 +1,13 @@
+# Build and test output folders
+bin
+obj
+.vs
+.vscode
+TestResults
+_artifacts
+out_*
+out_ps
+out_cli
+
+# Local-only folders
+__pycache__
