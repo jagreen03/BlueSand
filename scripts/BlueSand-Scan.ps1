@@ -1,5 +1,5 @@
-﻿# BlueSand-Scan.ps1
-# Reads config/bluesand.yaml, scans files, builds a consolidated word map (MD + CSV).
+# BlueSand-Scan.ps1
+# Reads config/bluesand.yaml, scans files, builds a consolidated word map (MD + CSV + XLSX).
 
 param(
   [string]$ConfigPath = "config\\bluesand.yaml",
@@ -293,7 +293,11 @@ $psRules = New-PathSpecSet $patternLines
 # before the loop
 $resolvedOutDir = ((Resolve-Path $OutDir).Path.TrimEnd('\','/')) + [IO.Path]::DirectorySeparatorChar
 # (optional) also skip C# output if present
-$resolvedOutCli = ((Resolve-Path ".\out_cli").Path.TrimEnd('\','/')) + [IO.Path]::DirectorySeparatorChar
+
+$outDir = Join-Path $PSScriptRoot "..\_artifacts\out_cli"
+if (-not (Test-Path $outDir)) { New-Item -ItemType Directory -Force -Path $outDir | Out-Null }
+
+$resolvedOutCli = ((Resolve-Path $outDir).Path.TrimEnd('\','/')) + [IO.Path]::DirectorySeparatorChar
 
 if ($resolvedOutCli) { $resolvedOutCli = $resolvedOutCli.TrimEnd('\','/') + [IO.Path]::DirectorySeparatorChar }
 
