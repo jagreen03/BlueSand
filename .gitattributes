@@ -1,1 +1,4 @@
 .gitattributes
+
+# Always favor local version of .gitignore on merges
+.gitignore merge=ours
